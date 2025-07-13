@@ -15,11 +15,41 @@ const CheckoutPage = () => {
   const gst = +(subtotal * 0.05).toFixed(2);
   const totalPrice = +(subtotal + gst).toFixed(2);
 
-  const handleMockPayment = () => {
-    setTimeout(() => {
-      alert("✅ Payment successful! Thank you for ordering from Feasto 🍽️");
-      clearCart();
-    }, 1500);
+  const handleRazorpayPayment = () => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.onload = () => {
+      const options = {
+        key: "rzp_test_I0TkSwrDjJ26jl", // 🔁 Replace with your Razorpay Test Key ID
+        amount: totalPrice * 100, // Amount in paise
+        currency: "INR",
+        name: "Feasto",
+        description: "Order Payment",
+        handler: function (response) {
+          alert("✅ Payment successful! Thank you for ordering from Feasto 🍽️");
+          console.log("Razorpay Payment ID:", response.razorpay_payment_id);
+          clearCart();
+        },
+        prefill: {
+          name: "Feasto User",
+          email: "testuser@example.com",
+          contact: "9999999999",
+        },
+        notes: {
+          address: "Feasto Test Address",
+        },
+        theme: {
+          color: "#FBBF24", // yellow-400
+        },
+      };
+
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+    };
+    script.onerror = () => {
+      alert("❌ Failed to load Razorpay SDK.");
+    };
+    document.body.appendChild(script);
   };
 
   return (
@@ -94,7 +124,7 @@ const CheckoutPage = () => {
                 Back to Previous Page
               </button>
               <button
-                onClick={handleMockPayment}
+                onClick={handleRazorpayPayment}
                 className="bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-2 rounded-full font-semibold transition cursor-pointer"
               >
                 Make Payment
