@@ -42,7 +42,60 @@ Feasto is a fully responsive, modern food delivery web application designed to e
 
 ## 📂 Project Structure
 
-Feasto_App/ │ ├── public/ ├── src/ │   ├── components/ │   ├── pages/ │   ├── redux/ │   ├── assets/ │   ├── App.jsx │   └── index.js │ ├── .env ├── package.json └── README.md
+Feasto_App/
+├── public/
+│   ├── index.html
+│   └── favicon.ico
+│
+├── src/
+│   ├── assets/                     # Images, icons, logos, etc.
+│   │   └── background.jpg
+│
+│   ├── components/                # Reusable UI components
+│   │   ├── Header.jsx
+│   │   ├── Footer.jsx
+│   │   ├── RestaurantCard.jsx
+│   │   ├── MenuItemCard.jsx
+│   │   ├── CartIcon.jsx
+│   │   ├── SearchBar.jsx
+│   │   └── ThemeToggle.jsx
+│
+│   ├── pages/                     # Full page components
+│   │   ├── HomePage.jsx
+│   │   ├── AllRestaurantsPage.jsx
+│   │   ├── CategoryPage.jsx
+│   │   ├── RestaurantDetailsPage.jsx
+│   │   ├── CartPage.jsx
+│   │   ├── LoginPage.jsx
+│   │   └── CheckoutPage.jsx
+│
+│   ├── redux/                     # Redux Toolkit store and slices
+│   │   ├── store.js
+│   │   ├── cartSlice.js
+│   │   └── restaurantSlice.js
+│
+│   ├── context/                   # React Contexts (if used alongside Redux)
+│   │   └── ThemeContext.jsx
+│
+│   ├── data/                      # Static restaurant/menu data
+│   │   ├── restaurantData.js
+│   │   └── menuData.js
+│
+│   ├── hooks/                     # Custom React hooks
+│   │   └── useGeoLocation.js
+│
+│   ├── App.jsx                    # Root App component
+│   ├── main.jsx                   # Entry point
+│   ├── index.css                  # Global styles
+│   └── firebase.js                # Firebase config
+│
+├── .env                           # Environment variables
+├── .gitignore
+├── package.json
+├── tailwind.config.js
+├── postcss.config.js
+├── vite.config.js
+└── README.md
 
 ---
 
