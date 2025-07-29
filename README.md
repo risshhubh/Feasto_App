@@ -1,3 +1,4 @@
+
 # 🍽️ Feasto_App - Your Ultimate Food Delivery Experience
 
 Feasto is a fully responsive, modern food delivery web application designed to elevate the dining experience for users and streamline the ordering process. With intuitive design, dynamic features, and smooth interactions, Feasto offers a seamless journey from craving to checkout.  
@@ -40,3 +41,55 @@ Feasto is a fully responsive, modern food delivery web application designed to e
 ---
 
 ## 📂 Project Structure
+
+Feasto_App/ │ ├── public/ ├── src/ │   ├── components/ │   ├── pages/ │   ├── redux/ │   ├── assets/ │   ├── App.jsx │   └── index.js │ ├── .env ├── package.json └── README.md
+
+---
+
+🔒 Environment Variables
+
+Create a .env file in the root and add the following:
+
+VITE_FIREBASE_API_KEY=your_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_RAZORPAY_KEY=your_razorpay_key
+
+
+---
+
+📌 Future Enhancements
+
+🛵 Add real-time delivery tracking with Map APIs
+
+📧 Order status notification via Email or SMS
+
+⭐ Ratings and reviews system
+
+🍽️ Admin dashboard for restaurant owners
+
+
+
+---
+
+🙌 Contributing
+
+Contributions, suggestions, and forks are welcome!
+Just fork the repo, make your changes, and submit a pull request 🚀
+
+
+---
+
+📄 License
+
+MIT © Rishabh Srivastava
+
+
+---
+
+🔗 Connect with Me
+
+🔗 LinkedIn
+
+💼 Portfolio
+
+📧 rishabhsrivastava921@gmail.com
