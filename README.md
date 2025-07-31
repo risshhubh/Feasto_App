@@ -1,4 +1,4 @@
-<img width="1916" height="1001" alt="Screenshot 2025-07-11 134508" src="https://github.com/user-attachments/assets/9fbd3b4c-7d21-4fdf-8d73-dc36dd43238a" />
+
 # 🍽️ Feasto_App - Your Ultimate Food Delivery Experience
 
 Feasto is a fully responsive, modern food delivery web application designed to elevate the dining experience for users and streamline the ordering process. With intuitive design, dynamic features, and smooth interactions, Feasto offers a seamless journey from craving to checkout.  
@@ -10,7 +10,7 @@ Feasto is a fully responsive, modern food delivery web application designed to e
 ## 📸 Preview
 
 ![Feasto App Preview](https://drive.google.com/file/d/1iuq9YQua84FdBpVz_XlVGIThKYZ82vlC/view?usp=sharing)
-
+<img width="1916" height="1001" alt="Screenshot 2025-07-11 134508" src="https://github.com/user-attachments/assets/9fbd3b4c-7d21-4fdf-8d73-dc36dd43238a" />
 ---
 
 ## ✨ Features
