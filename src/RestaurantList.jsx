@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import Header from './Header';
 import { restaurantData } from './restaurantData';
 import { useCart } from './CartContext';
 import { Star } from 'lucide-react';
@@ -145,7 +144,6 @@ const RestaurantDetails = () => {
 
   return (
     <>
-      <Header />
       {/* Background Blur Image */}
       <div
         className="fixed top-0 left-0 w-full h-full -z-10"

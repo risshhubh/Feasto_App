@@ -3,7 +3,6 @@ import { useLocation } from 'react-router-dom';
 import { restaurantData } from './restaurantData';
 import { useCart } from './CartContext';
 import { Star } from 'lucide-react';
-import Header from './Header';
 
 const extractQuery = (search) => {
   const params = new URLSearchParams(search);
@@ -35,7 +34,6 @@ const SearchResults = () => {
 
   return (
     <>
-      <Header />
       {/* Background */}
       <div
         className="relative min-h-screen pt-24 px-6 pb-16 bg-cover bg-center bg-no-repeat"

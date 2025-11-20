@@ -9,13 +9,13 @@ import AllRestaurants from './AllRestaurant';
 import CategoryPage from './CategoryPage';
 import FeaturedRestaurantMenu from './FeaturedRestaurantMenu';
 import CheckoutPage from './CheckoutPage';
+import AboutUs from './AboutUs';
+import Help from './Help';
+import OrderIssues from './OrderIssues';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SearchResults from './SearchResults';
 import { menuData } from './menuData'; // Adjust path if necessary
-
-
-
 
 function App() {
   return (
@@ -31,6 +31,9 @@ function App() {
         <Route path="/featured/:name" element={<FeaturedRestaurantMenu />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/search" element={<SearchResults />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/help" element={<Help />} />
+        <Route path="/orders/issues" element={<OrderIssues />} />
       </Routes>
       <ToastContainer />
     </>

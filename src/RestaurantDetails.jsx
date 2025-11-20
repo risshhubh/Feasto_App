@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { restaurantData } from './restaurantData';
 import { useCart } from './CartContext';
-import Header from './Header';
 import { Star } from 'lucide-react';
 
 const sampleMenu = [
@@ -142,7 +141,6 @@ const RestaurantDetails = () => {
 
   return (
     <>
-      <Header />
       <main className="pt-28 pb-16 px-4 sm:px-6 lg:px-8 bg-gray-50 min-h-screen max-w-screen-xl mx-auto">
         {/* 🔖 Breadcrumb */}
         <div className="mb-4 text-sm text-gray-600">
