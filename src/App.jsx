@@ -12,14 +12,16 @@ import CheckoutPage from './CheckoutPage';
 import AboutUs from './AboutUs';
 import Help from './Help';
 import OrderIssues from './OrderIssues';
+import { ReactLenis } from 'lenis/react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SearchResults from './SearchResults';
+import ProtectedRoute from './ProtectedRoute';
 import { menuData } from './menuData'; // Adjust path if necessary
 
 function App() {
   return (
-    <>
+    <ReactLenis root>
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -29,14 +31,28 @@ function App() {
         <Route path="/all-restaurants" element={<AllRestaurants />} />
         <Route path="/category/:categoryName" element={<CategoryPage />} />
         <Route path="/featured/:name" element={<FeaturedRestaurantMenu />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route
+          path="/checkout"
+          element={
+            <ProtectedRoute>
+              <CheckoutPage />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/search" element={<SearchResults />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/help" element={<Help />} />
-        <Route path="/orders/issues" element={<OrderIssues />} />
+        <Route
+          path="/orders/issues"
+          element={
+            <ProtectedRoute>
+              <OrderIssues />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       <ToastContainer />
-    </>
+    </ReactLenis>
   );
 }
 
