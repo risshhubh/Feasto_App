@@ -11,6 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  // Load Google Identity Services script and initialise
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://accounts.google.com/gsi/client';
@@ -20,7 +21,7 @@ const Login = () => {
 
     script.onload = () => {
       window.google.accounts.id.initialize({
-        client_id: '90321054006-kethjo4aj6kl7q689qe9qdt5cvc0laj8.apps.googleusercontent.com',
+        client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
         callback: handleGoogleResponse,
       });
 
@@ -29,8 +30,14 @@ const Login = () => {
         { theme: 'outline', size: 'large', width: '100%' }
       );
     };
+
+    // Cleanup on unmount
+    return () => {
+      document.body.removeChild(script);
+    };
   }, []);
 
+  // Google sign‑in callback
   const handleGoogleResponse = (response) => {
     const userObject = jwtDecode(response.credential);
     const googleUser = {
@@ -42,6 +49,7 @@ const Login = () => {
     navigate('/');
   };
 
+  // Email / password login
   const handleLogin = (e) => {
     e.preventDefault();
     const users = JSON.parse(localStorage.getItem('feastoUsers')) || [];
@@ -95,12 +103,14 @@ const Login = () => {
             Login
           </button>
         </form>
-
+        {/* Google Sign‑In button */}
         <div className="mt-5" id="googleLoginBtn"></div>
-
         <p className="text-sm text-center text-white mt-4">
           Don't have an account?{' '}
-          <span onClick={() => navigate('/signup')} className="text-yellow-200 hover:underline cursor-pointer">
+          <span
+            onClick={() => navigate('/signup')}
+            className="text-yellow-200 hover:underline cursor-pointer"
+          >
             Sign Up
           </span>
         </p>

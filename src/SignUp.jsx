@@ -27,7 +27,7 @@ const Signup = () => {
 
     script.onload = () => {
       window.google.accounts.id.initialize({
-        client_id: '90321054006-kethjo4aj6kl7q689qe9qdt5cvc0laj8.apps.googleusercontent.com',
+        client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
         callback: handleGoogleResponse,
       });
 
@@ -90,9 +90,8 @@ const Signup = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[url('https://images.pexels.com/photos/5779926/pexels-photo-5779926.jpeg')] bg-cover bg-center px-4">
       <div
-        className={`w-full max-w-md backdrop-blur-md bg-white/20 p-8 rounded-xl shadow-2xl transition-all duration-1000 ease-in-out transform ${
-          formVisible ? 'opacity-100 blur-none scale-100' : 'opacity-0 blur-sm scale-95'
-        }`}
+        className={`w-full max-w-md backdrop-blur-md bg-white/20 p-8 rounded-xl shadow-2xl transition-all duration-1000 ease-in-out transform ${formVisible ? 'opacity-100 blur-none scale-100' : 'opacity-0 blur-sm scale-95'
+          }`}
       >
         <h2
           className="text-3xl font-bold text-center text-white mb-6 drop-shadow animate-fade-down"
