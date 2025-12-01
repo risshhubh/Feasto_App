@@ -2,7 +2,7 @@ export const restaurantData = [
   {
     name: 'The Italian Spoon',
     cuisine: 'Italian',
-    image: 'https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg',
+
     rating: 4.6,
     hours: '11:00 AM - 11:00 PM',
     address: '123 Olive Street, New York, NY',
@@ -78,7 +78,7 @@ export const restaurantData = [
   {
     name: 'Mama Mia Pizzeria',
     cuisine: 'Italian',
-    image: 'https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg',
+
     rating: 4.3,
     hours: '10:00 AM - 10:00 PM',
     address: '456 Tomato Lane, Chicago, IL',
@@ -146,7 +146,7 @@ export const restaurantData = [
   {
     name: 'Spicy Sichuan',
     cuisine: 'Chinese',
-    image: 'https://images.pexels.com/photos/4198023/pexels-photo-4198023.jpeg',
+
     rating: 4.7,
     hours: '12:00 PM - 10:30 PM',
     address: '789 Dragon Blvd, San Francisco, CA',
@@ -230,7 +230,7 @@ export const restaurantData = [
   {
     name: 'Sushi Central',
     cuisine: 'Japanese',
-    image: 'https://images.pexels.com/photos/3577566/pexels-photo-3577566.jpeg',
+
     rating: 4.9,
     hours: '12:00 PM - 9:00 PM',
     address: '404 Ocean Ave, Honolulu, HI',

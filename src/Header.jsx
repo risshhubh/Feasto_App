@@ -20,6 +20,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const dropdownRef = useRef();
+  const mobileMenuRef = useRef();
   const navigate = useNavigate();
   const { cartItems } = useCart();
 
@@ -72,6 +73,18 @@ const Header = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const handleClickOutside = (e) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target)) {
+        setMobileOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [mobileOpen]);
+
   const handleLogout = () => {
     localStorage.removeItem('feastoUser');
     setUser(null);
@@ -94,9 +107,8 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 text-white transition-all duration-300 ${
-        scrolled ? 'bg-black/80 shadow-md py-2 backdrop-blur-md' : 'bg-black/40 py-4 backdrop-blur-md'
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 text-white transition-all duration-300 ${scrolled ? 'bg-black/80 shadow-md py-2 backdrop-blur-md' : 'bg-black/40 py-4 backdrop-blur-md'
+        }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         {/* Logo: mark + wordmark */}
@@ -174,7 +186,7 @@ const Header = () => {
 
         {/* Right actions */}
         <div className="flex items-center gap-3">
-            {/* Cart */}
+          {/* Cart */}
           <button
             onClick={handleCartClick}
             className="p-2 rounded-full hover:bg-white/10 transition-colors relative"
@@ -232,11 +244,11 @@ const Header = () => {
         {/* Mobile menu panel */}
       </div>
 
-        <div className={`md:hidden transition-all duration-300 ease-in-out ${mobileOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
+      <div ref={mobileMenuRef} className={`md:hidden transition-all duration-300 ease-in-out ${mobileOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
         <div className="px-4 pb-4 pt-2 bg-black/70 backdrop-blur-sm border-t border-white/5">
           <nav className="mt-1 space-y-2">
             <Link to="/all-restaurants" className="block px-3 py-2 rounded-md hover:bg-white/5">All Restaurants</Link>
-            <Link to="/featured" className="block px-3 py-2 rounded-md hover:bg-white/5">Featured</Link>
+            <Link to="/featured/The%20Italian%20Spoon" className="block px-3 py-2 rounded-md hover:bg-white/5">Featured</Link>
             <Link to="/about" className="block px-3 py-2 rounded-md hover:bg-white/5">About</Link>
             <Link to="/help" className="block px-3 py-2 rounded-md hover:bg-white/5">Help</Link>
             <Link to="/checkout" className="block px-3 py-2 rounded-md hover:bg-white/5">Cart</Link>

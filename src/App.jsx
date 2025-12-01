@@ -1,9 +1,10 @@
 // App.jsx
+import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './Header';
 import HomePage from './HomePage';
-import Login from './Login';
-import Signup from './SignUp';
+const Login = lazy(() => import('./Login'));
+const Signup = lazy(() => import('./SignUp'));
 import RestaurantDetails from './RestaurantDetails';
 import AllRestaurants from './AllRestaurant';
 import CategoryPage from './CategoryPage';
@@ -25,8 +26,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Suspense fallback={<div>Loading...</div>}><Login /></Suspense>} />
+        <Route path="/signup" element={<Suspense fallback={<div>Loading...</div>}><Signup /></Suspense>} />
         <Route path="/restaurant/:name" element={<RestaurantDetails />} />
         <Route path="/all-restaurants" element={<AllRestaurants />} />
         <Route path="/category/:categoryName" element={<CategoryPage />} />

@@ -5,10 +5,10 @@ import { useCart } from './CartContext';
 import { Star } from 'lucide-react';
 
 const sampleMenu = [
-   {
+  {
     name: 'Margherita Pizza',
     description: 'Classic Italian pizza with fresh tomatoes, mozzarella, and basil.',
-    image: '',
+    image: "https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg",
     rating: 4.5,
     price: 299,
     reviews: 124,
@@ -220,7 +220,7 @@ const RestaurantDetails = () => {
                   ) : (
                     <div className="flex items-center gap-2">
                       <button
-                      onClick={() => removeFromCart({ id: itemId })}
+                        onClick={() => removeFromCart({ id: itemId })}
                         className="bg-red-700 text-white px-2 py-0.5 rounded hover:bg-red-600"
                       >
                         −
