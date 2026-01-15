@@ -154,7 +154,7 @@ const OrderIssues = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-28">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 text-white py-16">
+      <div className="bg-[#FF6B35] text-white py-16">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">Order Issues</h1>
           <p className="text-xl md:text-2xl opacity-90 mb-8">
@@ -174,16 +174,16 @@ const OrderIssues = () => {
       </div>
 
       {/* Emergency Contact */}
-      <section className="py-8 bg-red-50 border-b border-red-200">
+      <section className="py-8 bg-[#FF6B35]/10 border-b border-[#FF6B35]/20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="bg-white p-6 rounded-lg shadow-md">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-2xl font-bold text-red-600 mb-2">Need Immediate Help?</h2>
+                <h2 className="text-2xl font-bold text-[#FF6B35] mb-2">Need Immediate Help?</h2>
                 <p className="text-gray-600">Call our 24/7 support line for urgent issues</p>
               </div>
               <div className="text-right">
-                <div className="text-2xl font-bold text-red-600">+1 (555) 123-4567</div>
+                <div className="text-2xl font-bold text-[#FF6B35]">+1 (555) 123-4567</div>
                 <div className="text-sm text-gray-500">Available 24/7</div>
               </div>
             </div>
@@ -211,7 +211,7 @@ const OrderIssues = () => {
                 <div className="text-red-500 mb-4">{issue.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{issue.title}</h3>
                 <p className="text-gray-600 mb-4">{issue.description}</p>
-                <button className="text-red-600 hover:text-red-700 font-medium">
+                <button className="text-[#FF6B35] hover:text-[#FF8C42] font-medium">
                   Get Help →
                 </button>
               </div>
@@ -318,22 +318,22 @@ const OrderIssues = () => {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="text-center p-6 rounded-lg bg-yellow-50">
-              <CheckCircle className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
+            <div className="text-center p-6 rounded-lg bg-[#FF6B35]/10">
+              <CheckCircle className="w-12 h-12 text-[#FF6B35] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Verify Address</h3>
               <p className="text-gray-600">
                 Double-check your delivery address before placing the order
               </p>
             </div>
-            <div className="text-center p-6 rounded-lg bg-orange-50">
-              <Phone className="w-12 h-12 text-orange-500 mx-auto mb-4" />
+            <div className="text-center p-6 rounded-lg bg-[#FF8C42]/10">
+              <Phone className="w-12 h-12 text-[#FF8C42] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Keep Phone Handy</h3>
               <p className="text-gray-600">
                 Ensure your phone is accessible for delivery updates
               </p>
             </div>
-            <div className="text-center p-6 rounded-lg bg-red-50">
-              <Clock className="w-12 h-12 text-red-500 mx-auto mb-4" />
+            <div className="text-center p-6 rounded-lg bg-[#FF6B6B]/10">
+              <Clock className="w-12 h-12 text-[#FF6B6B] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Check Timing</h3>
               <p className="text-gray-600">
                 Order during restaurant operating hours for best service
@@ -355,19 +355,19 @@ const OrderIssues = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-              <Phone className="w-12 h-12 text-red-500 mx-auto mb-4" />
+              <Phone className="w-12 h-12 text-[#FF6B35] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Phone Support</h3>
               <p className="text-gray-600 mb-4">24/7 available for urgent issues</p>
-              <div className="text-2xl font-bold text-red-600">+1 (555) 123-4567</div>
+              <div className="text-2xl font-bold text-[#FF6B35]">+1 (555) 123-4567</div>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-              <Mail className="w-12 h-12 text-orange-500 mx-auto mb-4" />
+              <Mail className="w-12 h-12 text-[#FF8C42] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Email Support</h3>
               <p className="text-gray-600 mb-4">For detailed issue reporting</p>
-              <div className="text-lg font-semibold text-orange-600">orders@feasto.com</div>
+              <div className="text-lg font-semibold text-[#FF8C42]">orders@feasto.com</div>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-              <MessageCircle className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
+              <MessageCircle className="w-12 h-12 text-[#FFD23F] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Live Chat</h3>
               <p className="text-gray-600 mb-4">Real-time assistance</p>
               <button className="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition-colors">
@@ -379,7 +379,7 @@ const OrderIssues = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 text-white">
+      <section className="py-16 bg-[#FF6B35] text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-4">We're Here to Help!</h2>
           <p className="text-xl mb-8 opacity-90">
@@ -389,13 +389,13 @@ const OrderIssues = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/help"
-              className="inline-block bg-white text-red-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300"
+              className="inline-block bg-white text-[#FF6B35] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300"
             >
               Visit Help Center
             </Link>
             <a
               href="tel:+15551234567"
-              className="inline-block bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-red-600 transition duration-300"
+              className="inline-block bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-[#FF6B35] transition duration-300"
             >
               Call Now
             </a>

@@ -6,7 +6,7 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-28">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white py-16">
+      <div className="bg-[#FF6B35] text-white py-16">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">About Feasto</h1>
           <p className="text-xl md:text-2xl opacity-90">
@@ -28,22 +28,22 @@ const AboutUs = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6 rounded-lg bg-yellow-50">
-              <Heart className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
+            <div className="text-center p-6 rounded-lg bg-[#FF6B35]/10">
+              <Heart className="w-12 h-12 text-[#FF6B35] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Passion for Food</h3>
               <p className="text-gray-600">
                 We're passionate about connecting you with the best culinary experiences.
               </p>
             </div>
-            <div className="text-center p-6 rounded-lg bg-orange-50">
-              <Users className="w-12 h-12 text-orange-500 mx-auto mb-4" />
+            <div className="text-center p-6 rounded-lg bg-[#FF8C42]/10">
+              <Users className="w-12 h-12 text-[#FF8C42] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Community First</h3>
               <p className="text-gray-600">
                 Building a community of food lovers and supporting local restaurants.
               </p>
             </div>
-            <div className="text-center p-6 rounded-lg bg-red-50">
-              <Award className="w-12 h-12 text-red-500 mx-auto mb-4" />
+            <div className="text-center p-6 rounded-lg bg-[#FF6B6B]/10">
+              <Award className="w-12 h-12 text-[#FF6B6B] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Quality Assured</h3>
               <p className="text-gray-600">
                 Partnering only with the highest quality restaurants and vendors.
@@ -93,15 +93,15 @@ const AboutUs = () => {
           </div>
           <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-yellow-500 mb-2">500+</div>
+              <div className="text-4xl font-bold text-[#FF6B35] mb-2">500+</div>
               <div className="text-gray-600">Restaurant Partners</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-orange-500 mb-2">50K+</div>
+              <div className="text-4xl font-bold text-[#FF8C42] mb-2">50K+</div>
               <div className="text-gray-600">Happy Customers</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-red-500 mb-2">100K+</div>
+              <div className="text-4xl font-bold text-[#FF6B6B] mb-2">100K+</div>
               <div className="text-gray-600">Orders Delivered</div>
             </div>
             <div className="text-center">
@@ -123,7 +123,7 @@ const AboutUs = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center p-6 bg-white rounded-lg shadow">
-              <MapPin className="w-8 h-8 text-yellow-500 mx-auto mb-4" />
+              <MapPin className="w-8 h-8 text-[#FF6B35] mx-auto mb-4" />
               <h3 className="font-semibold mb-2">Visit Us</h3>
               <p className="text-gray-600">
                 123 Food Street<br />
@@ -132,7 +132,7 @@ const AboutUs = () => {
               </p>
             </div>
             <div className="text-center p-6 bg-white rounded-lg shadow">
-              <Phone className="w-8 h-8 text-orange-500 mx-auto mb-4" />
+              <Phone className="w-8 h-8 text-[#FF8C42] mx-auto mb-4" />
               <h3 className="font-semibold mb-2">Call Us</h3>
               <p className="text-gray-600">
                 +1 (555) 123-4567<br />
@@ -140,7 +140,7 @@ const AboutUs = () => {
               </p>
             </div>
             <div className="text-center p-6 bg-white rounded-lg shadow">
-              <Mail className="w-8 h-8 text-red-500 mx-auto mb-4" />
+              <Mail className="w-8 h-8 text-[#FF6B6B] mx-auto mb-4" />
               <h3 className="font-semibold mb-2">Email Us</h3>
               <p className="text-gray-600">
                 hello@feasto.com<br />
@@ -160,7 +160,7 @@ const AboutUs = () => {
           </p>
           <Link
             to="/"
-            className="inline-block bg-white text-yellow-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300"
+            className="inline-block bg-white text-[#FF6B35] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300"
           >
             Explore Restaurants
           </Link>

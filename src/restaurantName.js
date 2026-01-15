@@ -11,7 +11,7 @@ const AllRestaurants = () => {
   };
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-yellow-100 via-orange-50 to-red-100">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F5F5F5]">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl font-bold text-center text-gray-800 mb-14">
           All Restaurants

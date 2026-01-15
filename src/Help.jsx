@@ -108,7 +108,7 @@ const Help = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-28">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white py-16">
+      <div className="bg-[#FF6B35] text-white py-16">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">Help Center</h1>
           <p className="text-xl md:text-2xl opacity-90 mb-8">
@@ -123,7 +123,7 @@ const Help = () => {
                 placeholder="Search for help articles..."
                 className="w-full px-6 py-4 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
               />
-              <button className="absolute right-2 top-2 p-2 bg-yellow-500 rounded-full hover:bg-yellow-600 transition-colors">
+              <button className="absolute right-2 top-2 p-2 bg-[#FF6B35] rounded-full hover:bg-[#FF8C42] transition-colors">
                 <Search className="w-6 h-6 text-white" />
               </button>
             </div>
@@ -135,20 +135,20 @@ const Help = () => {
       <section className="py-12 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6 rounded-lg bg-yellow-50">
-              <Phone className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
+            <div className="text-center p-6 rounded-lg bg-[#FF6B35]/10">
+              <Phone className="w-12 h-12 text-[#FF6B35] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Call Us</h3>
               <p className="text-gray-600 mb-2">+1 (555) 123-4567</p>
               <p className="text-sm text-gray-500">24/7 Support</p>
             </div>
-            <div className="text-center p-6 rounded-lg bg-orange-50">
-              <Mail className="w-12 h-12 text-orange-500 mx-auto mb-4" />
+            <div className="text-center p-6 rounded-lg bg-[#FF8C42]/10">
+              <Mail className="w-12 h-12 text-[#FF8C42] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Email Us</h3>
               <p className="text-gray-600 mb-2">support@feasto.com</p>
               <p className="text-sm text-gray-500">Response within 2 hours</p>
             </div>
-            <div className="text-center p-6 rounded-lg bg-red-50">
-              <MessageCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
+            <div className="text-center p-6 rounded-lg bg-[#FF6B6B]/10">
+              <MessageCircle className="w-12 h-12 text-[#FF6B6B] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Live Chat</h3>
               <p className="text-gray-600 mb-2">Chat with us online</p>
               <p className="text-sm text-gray-500">Available 9AM-9PM</p>
@@ -170,12 +170,12 @@ const Help = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {helpCategories.map((category, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <div className="text-yellow-500 mb-4">{category.icon}</div>
+                <div className="text-[#FF6B35] mb-4">{category.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{category.title}</h3>
                 <p className="text-gray-600 mb-4">{category.description}</p>
                 <Link 
                   to={category.link}
-                  className="text-yellow-600 hover:text-yellow-700 font-medium"
+                  className="text-[#FF6B35] hover:text-[#FF8C42] font-medium"
                 >
                   Learn More →
                 </Link>
@@ -239,7 +239,7 @@ const Help = () => {
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF6B35]"
                     placeholder="Enter your first name"
                   />
                 </div>
@@ -249,7 +249,7 @@ const Help = () => {
                   </label>
                   <input
                     type="text"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF6B35]"
                     placeholder="Enter your last name"
                   />
                 </div>
@@ -294,7 +294,7 @@ const Help = () => {
               
               <button
                 type="submit"
-                className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-6 rounded-lg transition duration-300"
+                className="w-full bg-[#FF6B35] hover:bg-[#FF8C42] text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
               >
                 Send Message
               </button>
@@ -309,17 +309,17 @@ const Help = () => {
           <h2 className="text-3xl font-bold text-gray-800 mb-8">Customer Support Hours</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="p-6 rounded-lg bg-gray-50">
-              <Clock className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
+              <Clock className="w-12 h-12 text-[#FF6B35] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Phone Support</h3>
               <p className="text-gray-600">24/7 Available</p>
             </div>
             <div className="p-6 rounded-lg bg-gray-50">
-              <Clock className="w-12 h-12 text-orange-500 mx-auto mb-4" />
+              <Clock className="w-12 h-12 text-[#FF8C42] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Live Chat</h3>
               <p className="text-gray-600">9:00 AM - 9:00 PM</p>
             </div>
             <div className="p-6 rounded-lg bg-gray-50">
-              <Clock className="w-12 h-12 text-red-500 mx-auto mb-4" />
+              <Clock className="w-12 h-12 text-[#FF6B6B] mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Email Support</h3>
               <p className="text-gray-600">Response within 2 hours</p>
             </div>

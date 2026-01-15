@@ -5,20 +5,14 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FcGoogle } from 'react-icons/fc';
 import { jwtDecode } from 'jwt-decode';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
 const Signup = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [formVisible, setFormVisible] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    AOS.init({ duration: 800 });
-
     const script = document.createElement('script');
     script.src = 'https://accounts.google.com/gsi/client';
     script.async = true;
@@ -36,9 +30,6 @@ const Signup = () => {
         { theme: 'outline', size: 'large', width: '100%' }
       );
     };
-
-    // Trigger form blur fade-in
-    setTimeout(() => setFormVisible(true), 100);
   }, []);
 
   const handleGoogleResponse = (response) => {
@@ -88,76 +79,149 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[url('https://images.pexels.com/photos/5779926/pexels-photo-5779926.jpeg')] bg-cover bg-center px-4">
-      <div
-        className={`w-full max-w-md backdrop-blur-md bg-white/20 p-8 rounded-xl shadow-2xl transition-all duration-1000 ease-in-out transform ${formVisible ? 'opacity-100 blur-none scale-100' : 'opacity-0 blur-sm scale-95'
-          }`}
-      >
-        <h2
-          className="text-3xl font-bold text-center text-white mb-6 drop-shadow animate-fade-down"
-          data-aos="fade-down"
-        >
-          Sign Up for Feasto
-        </h2>
-        <form onSubmit={handleSignup} className="space-y-5">
-          <div data-aos="fade-right">
-            <label className="block text-sm text-white font-medium">Full Name</label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-400 bg-white/55"
-            />
-          </div>
-          <div data-aos="fade-left">
-            <label className="block text-sm text-white font-medium">Email</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-400 bg-white/55"
-            />
-          </div>
-          <div data-aos="fade-right">
-            <label className="block text-sm text-white font-medium">Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-400 bg-white/55"
-            />
-          </div>
-          <div data-aos="fade-left">
-            <label className="block text-sm text-white font-medium">Confirm Password</label>
-            <input
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-              className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-400 bg-white/55"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-red-500 text-white py-2 rounded-md font-semibold hover:bg-red-600 transition"
-            data-aos="zoom-in"
-          >
-            Sign Up
-          </button>
-        </form>
-
-        <div className="mt-5" id="googleSignupBtn" data-aos="fade-up"></div>
-
-        <p className="text-sm text-center text-white mt-4">
-          Already have an account?{' '}
-          <span onClick={() => navigate('/login')} className="text-yellow-200 hover:underline cursor-pointer">
-            Login
-          </span>
-        </p>
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#1A1A1A] via-[#2D2D2D] to-[#1A1A1A] px-4 py-8">
+      {/* Food-themed background pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-16 left-12 text-7xl animate-bounce" style={{ animationDuration: '3.5s' }}>🍕</div>
+        <div className="absolute top-32 right-16 text-6xl animate-bounce" style={{ animationDuration: '4s', animationDelay: '0.3s' }}>🍔</div>
+        <div className="absolute top-1/2 left-1/4 text-8xl animate-pulse">🍽️</div>
+        <div className="absolute bottom-40 right-1/4 text-6xl animate-bounce" style={{ animationDuration: '3.8s', animationDelay: '0.7s' }}>🍜</div>
+        <div className="absolute bottom-24 left-1/3 text-7xl animate-bounce" style={{ animationDuration: '4.2s', animationDelay: '1.2s' }}>🍣</div>
+        <div className="absolute top-2/3 right-1/3 text-5xl animate-bounce" style={{ animationDuration: '3.2s', animationDelay: '0.5s' }}>🌮</div>
       </div>
+
+      {/* Decorative food icons floating */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 right-1/4 text-5xl opacity-20 animate-float">🥘</div>
+        <div className="absolute bottom-32 left-1/4 text-4xl opacity-20 animate-float" style={{ animationDelay: '1.5s' }}>🍛</div>
+        <div className="absolute top-1/4 left-10 text-4xl opacity-20 animate-float" style={{ animationDelay: '2.5s' }}>🍗</div>
+        <div className="absolute bottom-16 right-10 text-5xl opacity-20 animate-float" style={{ animationDelay: '0.8s' }}>🥗</div>
+      </div>
+
+      <div className="w-full max-w-md relative z-10">
+        {/* Main Card */}
+        <div className="bg-white/95 backdrop-blur-lg p-8 rounded-3xl shadow-2xl border border-white/20">
+          {/* Logo and Header */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#FF6B35] rounded-full mb-4 shadow-lg animate-pulse">
+              <span className="text-4xl">🍴</span>
+            </div>
+            <h1 className="text-4xl font-serif font-bold text-[#FF6B35] mb-2">Join Feasto</h1>
+            <p className="text-gray-600 text-sm">Start your delicious journey today! 🎉</p>
+          </div>
+
+          <form onSubmit={handleSignup} className="space-y-5">
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <span className="inline-flex items-center gap-2">
+                  👤 Full Name
+                </span>
+              </label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                placeholder="John Doe"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#FF6B35] focus:border-[#FF6B35] bg-white transition-all outline-none"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <span className="inline-flex items-center gap-2">
+                  📧 Email Address
+                </span>
+              </label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                placeholder="your.email@example.com"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#FF6B35] focus:border-[#FF6B35] bg-white transition-all outline-none"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <span className="inline-flex items-center gap-2">
+                  🔒 Password
+                </span>
+              </label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                placeholder="Create a strong password"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#FF6B35] focus:border-[#FF6B35] bg-white transition-all outline-none"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <span className="inline-flex items-center gap-2">
+                  🔒 Confirm Password
+                </span>
+              </label>
+              <input
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+                placeholder="Re-enter your password"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#FF6B35] focus:border-[#FF6B35] bg-white transition-all outline-none"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-[#FF6B35] text-white py-3.5 rounded-xl font-bold text-lg hover:bg-[#FF8C42] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] flex items-center justify-center gap-2"
+            >
+              <span>🎉</span>
+              <span>Create Account & Start Ordering</span>
+            </button>
+          </form>
+
+          {/* Divider */}
+          <div className="relative my-6">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-300"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-4 bg-white text-gray-500">or sign up with</span>
+            </div>
+          </div>
+
+          {/* Google Sign‑In button */}
+          <div className="mb-6" id="googleSignupBtn"></div>
+
+          {/* Login Link */}
+          <p className="text-center text-gray-600 text-sm">
+            Already have an account?{' '}
+            <span
+              onClick={() => navigate('/login')}
+              className="text-[#FF6B35] font-semibold hover:underline cursor-pointer hover:text-[#FF8C42] transition"
+            >
+              Login Here 🍽️
+            </span>
+          </p>
+        </div>
+
+        {/* Food Quote */}
+        <div className="mt-6 text-center">
+          <p className="text-white/80 text-sm italic">
+            "Life is too short for bad food" 🍕✨
+          </p>
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 };

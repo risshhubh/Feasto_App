@@ -83,38 +83,40 @@ const CategoryPage = () => {
   };
 
   return (
-    <div
-      className="min-h-screen pt-28 pb-10 px-4 sm:px-6 lg:px-12 relative bg-cover bg-center"
-      style={{
-        backgroundImage: 'url(https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg)',
-        backgroundAttachment: 'fixed',
-        backgroundSize: 'cover'
-      }}
-    >
-      <div className="absolute inset-0 bg-white/70 backdrop-blur-md z-0"></div>
-      <div className="relative z-10">
-        <div className="mb-4 text-sm text-gray-500 space-x-1">
-          <Link to="/" className="text-orange-600 hover:underline">Home</Link>
-          <span>/</span>
-          <span className="capitalize font-medium text-gray-700">{categoryName}</span>
+    <div className="min-h-screen pt-28 pb-10 px-4 sm:px-6 lg:px-12 relative bg-gradient-to-br from-[#FFFBF0] via-[#FFF8E1] to-[#FFF5E6]">
+      {/* Subtle Background */}
+      <div 
+        className="absolute inset-0 opacity-15 z-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg)',
+        }}
+      ></div>
+      <div className="absolute inset-0 bg-white/50 backdrop-blur-sm z-[1]"></div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="mb-6 text-sm text-gray-600">
+          <Link to="/" className="hover:text-[#FF6B35] transition">Home</Link>
+          <span className="mx-2">/</span>
+          <span className="capitalize font-medium text-gray-800">{categoryName}</span>
         </div>
 
-        <h1 className="text-4xl font-bold text-center mb-8 capitalize">
+        <h1 className="text-4xl sm:text-5xl font-serif font-bold text-center mb-10 capitalize text-gray-800">
           Top {categoryName} Restaurants
         </h1>
 
         <div className="lg:grid lg:grid-cols-3 gap-6 flex flex-col-reverse">
-          <div className="col-span-1 lg:overflow-y-auto lg:max-h-[70vh] flex lg:flex-col gap-4 pb-4 lg:pb-0 overflow-x-auto">
+          {/* Restaurant List Sidebar */}
+          <div className="col-span-1 lg:overflow-y-auto lg:max-h-[75vh] flex lg:flex-col gap-4 pb-4 lg:pb-0 overflow-x-auto">
             <div className="flex lg:flex-col gap-4">
               {restaurants.map((r) => (
                 <div
                   key={r.id}
                   onClick={() => { setSelected(r); setTab('menu'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                  className={`min-w-[250px] lg:min-w-0 cursor-pointer bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition ${selected?.id === r.id ? 'ring-2 ring-orange-500' : ''}`}
+                  className={`min-w-[250px] lg:min-w-0 cursor-pointer bg-white/60 backdrop-blur-sm rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border-2 ${selected?.id === r.id ? 'border-[#FF6B35] shadow-lg' : 'border-transparent'}`}
                 >
-                  <img src={r.image} alt={r.name} className="w-full h-36 object-cover" />
-                  <div className="p-3">
-                    <h3 className="text-md font-semibold text-gray-800">{r.name}</h3>
+                  <img src={r.image} alt={r.name} className="w-full h-40 object-cover" />
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold text-gray-800 mb-1">{r.name}</h3>
                     <p className="text-sm text-gray-600">⭐ {r.rating} • 📍 {r.location}</p>
                   </div>
                 </div>
@@ -122,28 +124,35 @@ const CategoryPage = () => {
             </div>
           </div>
 
-          <div className="col-span-2 bg-white rounded-xl shadow-lg p-6 h-fit">
+          {/* Restaurant Details Panel */}
+          <div className="col-span-2 bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/50 p-6 lg:p-8 h-fit">
             {selected ? (
               <>
-                <img
-                  src={selected.image}
-                  alt={selected.name}
-                  className="w-full h-72 object-cover rounded-lg mb-4"
-                />
-                <h2 className="text-2xl font-bold text-gray-800 mb-2">{selected.name}</h2>
-                <p className="text-sm text-gray-600 mb-2">⭐ {selected.rating} • 📍 {selected.location}</p>
-                <p className="text-gray-700 leading-relaxed mb-4">{selected.description}</p>
+                <div className="relative h-64 sm:h-80 rounded-xl overflow-hidden mb-6">
+                  <img
+                    src={selected.image}
+                    alt={selected.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <h2 className="text-3xl font-bold mb-2">{selected.name}</h2>
+                    <p className="text-sm mb-1">⭐ {selected.rating} • 📍 {selected.location}</p>
+                  </div>
+                </div>
+                <p className="text-gray-700 leading-relaxed mb-6">{selected.description}</p>
 
-                <div className="mb-4 flex gap-4 border-b border-gray-200">
+                {/* Tabs */}
+                <div className="mb-6 flex gap-6 border-b border-gray-200">
                   <button
                     onClick={() => setTab('menu')}
-                    className={`pb-2 ${tab === 'menu' ? 'border-b-2 border-orange-500 text-orange-600' : 'text-gray-500'}`}
+                    className={`pb-3 font-semibold transition-colors ${tab === 'menu' ? 'border-b-2 border-[#FF6B35] text-[#FF6B35]' : 'text-gray-500 hover:text-gray-700'}`}
                   >
                     Menu
                   </button>
                   <button
                     onClick={() => setTab('reviews')}
-                    className={`pb-2 ${tab === 'reviews' ? 'border-b-2 border-orange-500 text-orange-600' : 'text-gray-500'}`}
+                    className={`pb-3 font-semibold transition-colors ${tab === 'reviews' ? 'border-b-2 border-[#FF6B35] text-[#FF6B35]' : 'text-gray-500 hover:text-gray-700'}`}
                   >
                     Reviews
                   </button>
@@ -154,51 +163,57 @@ const CategoryPage = () => {
                     {selected.menu.map((item, idx) => {
                       const qty = getItemQty(item.id);
                       return (
-                        <div key={idx} className="flex flex-col sm:flex-row gap-4 items-start bg-gray-50 p-3 rounded-lg shadow-sm">
-                          <img src={item.image} alt={item.name} className="w-full sm:w-20 h-20 rounded-md object-cover" />
-                          <div className="flex-1">
-                            <h4 className="font-semibold text-gray-800">{item.name}</h4>
-                            <p className="text-sm text-gray-600">{item.description}</p>
-                            <div className="flex justify-between mt-1 text-sm">
-                              <span className="text-orange-600 font-medium">₹{item.price}</span>
-                              <span className="text-gray-500">⭐ {item.rating}</span>
-                            </div>
+                        <div key={idx} className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-gray-200/50 shadow-sm hover:shadow-md transition-all">
+                          <div className="flex gap-4">
+                            <img src={item.image} alt={item.name} className="w-24 h-24 rounded-lg object-cover shrink-0" />
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-bold text-gray-800 mb-1">{item.name}</h4>
+                              <p className="text-xs text-gray-600 mb-2 line-clamp-2">{item.description}</p>
+                              <div className="flex items-center justify-between mb-2">
+                                <span className="text-lg font-bold text-[#FF6B35]">₹{item.price}</span>
+                                <span className="text-xs text-gray-500">⭐ {item.rating}</span>
+                              </div>
 
-                            {qty === 0 ? (
-                              <button
-                                onClick={() => addToCart(item)}
-                                className="mt-2 px-3 py-1 text-sm bg-orange-500 hover:bg-orange-600 text-white rounded"
-                              >
-                                Add to Cart
-                              </button>
-                            ) : (
-                              <div className="flex items-center gap-2 mt-2">
-                                <button
-                                  onClick={() => removeFromCart(item)}
-                                  className="px-2 py-1 text-sm bg-gray-200 hover:bg-gray-300 rounded"
-                                >−</button>
-                                <span>{qty}</span>
+                              {qty === 0 ? (
                                 <button
                                   onClick={() => addToCart(item)}
-                                  className="px-2 py-1 text-sm bg-orange-500 hover:bg-orange-600 text-white rounded"
-                                >+</button>
-                              </div>
-                            )}
+                                  className="w-full px-3 py-1.5 text-sm bg-[#FF6B35] hover:bg-[#FF8C42] text-white rounded-lg transition-all font-semibold"
+                                >
+                                  Add to Cart
+                                </button>
+                              ) : (
+                                <div className="flex items-center justify-center gap-2 bg-gray-50 rounded-lg p-1.5">
+                                  <button
+                                    onClick={() => removeFromCart(item)}
+                                    className="bg-[#FF6B6B] text-white w-7 h-7 rounded-lg hover:bg-[#FF8C8C] transition-all font-bold text-sm"
+                                  >−</button>
+                                  <span className="font-bold text-gray-800 min-w-[25px] text-center">{qty}</span>
+                                  <button
+                                    onClick={() => addToCart(item)}
+                                    className="bg-[#FF6B35] text-white w-7 h-7 rounded-lg hover:bg-[#FF8C42] transition-all font-bold text-sm"
+                                  >+</button>
+                                </div>
+                              )}
+                            </div>
                           </div>
                         </div>
                       );
                     })}
                   </div>
                 ) : (
-                  <ul className="space-y-2 text-gray-700">
-                    {selected.reviews.map((review, idx) => <li key={idx}>
-                      "{review}"
-                    </li>)}
-                  </ul>
+                  <div className="space-y-4">
+                    {selected.reviews.map((review, idx) => (
+                      <div key={idx} className="bg-white/60 backdrop-blur-sm rounded-xl p-4 border border-gray-200/50">
+                        <p className="text-gray-700 italic">"{review}"</p>
+                      </div>
+                    ))}
+                  </div>
                 )}
               </>
             ) : (
-              <p className="text-gray-500 italic">Select a restaurant to see details.</p>
+              <div className="text-center py-12">
+                <p className="text-gray-500 italic">Select a restaurant to see details</p>
+              </div>
             )}
           </div>
         </div>

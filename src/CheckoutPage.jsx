@@ -39,7 +39,7 @@ const CheckoutPage = () => {
           address: "Feasto Test Address",
         },
         theme: {
-          color: "#FBBF24", // yellow-400
+          color: "#FF6B35", // Primary orange
         },
       };
 
@@ -62,7 +62,7 @@ const CheckoutPage = () => {
             <p className="text-gray-600 text-lg mb-4">🛒 Your cart is empty!</p>
             <button
               onClick={() => navigate(-1)}
-              className="text-white bg-yellow-400 hover:bg-yellow-500 px-5 py-2 rounded-full text-sm font-medium transition cursor-pointer"
+              className="text-white bg-[#FF6B35] hover:bg-[#FF8C42] px-5 py-2 rounded-full text-sm font-medium transition cursor-pointer"
             >
               Back to Previous Page
             </button>
@@ -77,7 +77,7 @@ const CheckoutPage = () => {
                     <div className="flex items-center gap-2 mt-1">
                       <button
                         onClick={() => decrementItem(item.id)}
-                        className="bg-red-500 text-white rounded px-2 py-0.5 hover:bg-red-600"
+                        className="bg-[#FF6B6B] text-white rounded px-2 py-0.5 hover:bg-[#FF8C8C]"
                       >
                         −
                       </button>
@@ -125,7 +125,7 @@ const CheckoutPage = () => {
               </button>
               <button
                 onClick={handleRazorpayPayment}
-                className="bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-2 rounded-full font-semibold transition cursor-pointer"
+                className="bg-[#FF6B35] hover:bg-[#FF8C42] text-white px-6 py-2 rounded-full font-semibold transition cursor-pointer"
               >
                 Make Payment
               </button>

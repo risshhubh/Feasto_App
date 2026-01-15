@@ -214,7 +214,7 @@ const RestaurantDetails = () => {
                   {quantity === 0 ? (
                     <button
                       onClick={() => addToCart({ id: itemId, name: itemName, image, price })}
-                      className="mt-2 text-sm bg-amber-600 text-white px-4 py-1 rounded hover:bg-orange-800"
+                      className="mt-2 text-sm bg-[#FF6B35] text-white px-4 py-1 rounded hover:bg-[#FF8C42]"
                     >
                       Add to Cart
                     </button>
@@ -222,7 +222,7 @@ const RestaurantDetails = () => {
                     <div className="mt-2 flex items-center gap-2">
                       <button
                         onClick={() => removeFromCart(itemId)}
-                        className="bg-red-700 text-white px-2 py-0.5 rounded hover:bg-red-600"
+                        className="bg-[#FF6B6B] text-white px-2 py-0.5 rounded hover:bg-[#FF8C8C]"
                       >
                         −
                       </button>

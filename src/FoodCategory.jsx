@@ -40,7 +40,7 @@ const FoodCategory = () => {
               <button
                 key={category}
                 onClick={() => handleCategoryClick(category)}
-                className="px-5 py-2 rounded-full border text-sm font-medium transition-all duration-200 bg-white text-gray-700 border-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-950"
+                className="px-5 py-2 rounded-full border text-sm font-medium transition-all duration-200 bg-white text-gray-700 border-gray-300 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF6B35]"
               >
                 {category}
               </button>

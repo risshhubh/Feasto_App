@@ -21,7 +21,7 @@ const Login = () => {
 
     script.onload = () => {
       window.google.accounts.id.initialize({
-        client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+        clientId: import.meta.env.VITE_GOOGLE_CLIENT_ID,
         callback: handleGoogleResponse,
       });
 
@@ -72,49 +72,117 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[url('https://images.pexels.com/photos/20408434/pexels-photo-20408434.jpeg')] bg-cover bg-center px-4">
-      <div className="w-full max-w-md backdrop-blur-md bg-white/20 p-8 rounded-xl shadow-2xl">
-        <h2 className="text-3xl font-bold text-center text-white mb-6 drop-shadow">Login to Feasto</h2>
-        <form onSubmit={handleLogin} className="space-y-5">
-          <div>
-            <label className="lock text-sm text-white font-medium">Email</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-400 bg-white/70"
-            />
-          </div>
-          <div>
-            <label className="lock text-sm text-white font-semibold">Password</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-red-400 bg-white/70"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-red-500 text-white py-2 rounded-md font-semibold hover:bg-red-600 transition"
-          >
-            Login
-          </button>
-        </form>
-        {/* Google Sign‑In button */}
-        <div className="mt-5" id="googleLoginBtn"></div>
-        <p className="text-sm text-center text-white mt-4">
-          Don't have an account?{' '}
-          <span
-            onClick={() => navigate('/signup')}
-            className="text-yellow-200 hover:underline cursor-pointer"
-          >
-            Sign Up
-          </span>
-        </p>
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#1A1A1A] via-[#2D2D2D] to-[#1A1A1A] px-4">
+      {/* Food-themed background pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-10 text-6xl animate-bounce" style={{ animationDuration: '3s' }}>🍕</div>
+        <div className="absolute top-40 right-20 text-5xl animate-bounce" style={{ animationDuration: '4s', animationDelay: '0.5s' }}>🍔</div>
+        <div className="absolute bottom-32 left-1/4 text-7xl animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '1s' }}>🍜</div>
+        <div className="absolute bottom-20 right-1/3 text-6xl animate-bounce" style={{ animationDuration: '4.5s', animationDelay: '0.3s' }}>🍣</div>
+        <div className="absolute top-1/2 left-1/2 text-8xl animate-pulse">🍽️</div>
       </div>
+
+      {/* Decorative food icons floating */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 right-10 text-4xl opacity-20 animate-float">🌮</div>
+        <div className="absolute bottom-10 left-10 text-4xl opacity-20 animate-float" style={{ animationDelay: '1s' }}>🥘</div>
+        <div className="absolute top-1/3 right-1/4 text-5xl opacity-20 animate-float" style={{ animationDelay: '2s' }}>🍛</div>
+      </div>
+
+      <div className="w-full max-w-md relative z-10">
+        {/* Main Card */}
+        <div className="bg-white/95 backdrop-blur-lg p-8 rounded-3xl shadow-2xl border border-white/20">
+          {/* Logo and Header */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-[#FF6B35] rounded-full mb-4 shadow-lg">
+              <span className="text-4xl">🍴</span>
+            </div>
+            <h1 className="text-4xl font-serif font-bold text-[#FF6B35] mb-2">Feasto</h1>
+            <p className="text-gray-600 text-sm">Welcome back! Let's get you fed 🍽️</p>
+          </div>
+
+          <form onSubmit={handleLogin} className="space-y-6">
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <span className="inline-flex items-center gap-2">
+                  📧 Email Address
+                </span>
+              </label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                placeholder="your.email@example.com"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#FF6B35] focus:border-[#FF6B35] bg-white transition-all outline-none"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <span className="inline-flex items-center gap-2">
+                  🔒 Password
+                </span>
+              </label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                placeholder="Enter your password"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#FF6B35] focus:border-[#FF6B35] bg-white transition-all outline-none"
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-[#FF6B35] text-white py-3.5 rounded-xl font-bold text-lg hover:bg-[#FF8C42] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] flex items-center justify-center gap-2"
+            >
+              <span>🍽️</span>
+              <span>Login & Start Ordering</span>
+            </button>
+          </form>
+
+          {/* Divider */}
+          <div className="relative my-6">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-300"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-4 bg-white text-gray-500">or continue with</span>
+            </div>
+          </div>
+
+          {/* Google Sign‑In button */}
+          <div className="mb-6" id="googleLoginBtn"></div>
+
+          {/* Sign Up Link */}
+          <p className="text-center text-gray-600 text-sm">
+            Don't have an account?{' '}
+            <span
+              onClick={() => navigate('/signup')}
+              className="text-[#FF6B35] font-semibold hover:underline cursor-pointer hover:text-[#FF8C42] transition"
+            >
+              Sign Up Now 🎉
+            </span>
+          </p>
+        </div>
+
+        {/* Food Quote */}
+        <div className="mt-6 text-center">
+          <p className="text-white/80 text-sm italic">
+            "Good food is the foundation of genuine happiness" 🍕
+          </p>
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 };

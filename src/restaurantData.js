@@ -2,6 +2,7 @@ export const restaurantData = [
   {
     name: 'The Italian Spoon',
     cuisine: 'Italian',
+    image: 'https://images.unsplash.com/photo-1498579150354-977475b7ea0b?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 
     rating: 4.6,
     hours: '11:00 AM - 11:00 PM',
@@ -78,6 +79,7 @@ export const restaurantData = [
   {
     name: 'Mama Mia Pizzeria',
     cuisine: 'Italian',
+    image: 'https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 
     rating: 4.3,
     hours: '10:00 AM - 10:00 PM',
@@ -146,6 +148,7 @@ export const restaurantData = [
   {
     name: 'Spicy Sichuan',
     cuisine: 'Chinese',
+    image: 'https://images.unsplash.com/photo-1762305194201-077e7e23ccf2?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 
     rating: 4.7,
     hours: '12:00 PM - 10:30 PM',
@@ -230,6 +233,7 @@ export const restaurantData = [
   {
     name: 'Sushi Central',
     cuisine: 'Japanese',
+    image: 'https://images.unsplash.com/photo-1582450871972-ab5ca641643d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 
     rating: 4.9,
     hours: '12:00 PM - 9:00 PM',

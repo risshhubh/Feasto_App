@@ -89,26 +89,31 @@ const FeaturedRestaurantMenu = () => {
   };
 
   return (
-    <div
-  className="relative min-h-screen bg-cover bg-center bg-no-repeat"
-  style={{
-    backgroundImage: `url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg')`,
-    backgroundAttachment: 'fixed',
-  }}
->
-  <div className="absolute inset-0 bg-white/70 backdrop-blur-md z-0"></div>
+    <div className="relative min-h-screen bg-gradient-to-br from-[#FFFBF0] via-[#FFF8E1] to-[#FFF5E6] pt-28 pb-16">
+      {/* Subtle Background Pattern */}
+      <div 
+        className="absolute inset-0 opacity-20 z-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg')`,
+        }}
+      ></div>
+      <div className="absolute inset-0 bg-white/40 backdrop-blur-sm z-[1]"></div>
 
-  {/* 👇 Add padding top to give space from header */}
-  <div className="relative z-10 pt-28 px-6">
-    {/* Breadcrumb (simplified to avoid broken route) */}
-    <nav className="mb-6 text-sm text-gray-700 font-medium space-x-2">
-      <Link to="/" className="text-orange-600 hover:underline">Home</Link>
-      <span>/</span>
-      <span className="text-gray-800">{name}</span>
-    </nav>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Breadcrumb */}
+        <nav className="mb-6 text-sm text-gray-600">
+          <Link to="/" className="hover:text-[#FF6B35] transition">Home</Link>
+          <span className="mx-2">/</span>
+          <span className="text-gray-800 font-medium">{name}</span>
+        </nav>
 
-    <h2 className="text-3xl font-bold mb-6 text-center">{name} Menu</h2>
+        {/* Restaurant Header */}
+        <div className="mb-10 text-center">
+          <h1 className="text-4xl sm:text-5xl font-serif font-bold text-gray-800 mb-3">{name}</h1>
+          <p className="text-gray-600 text-lg">Explore our delicious menu</p>
+        </div>
 
+        {/* Menu Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {menuItems.map((item, idx) => {
             const id = `${name}-${item.name}`;
@@ -116,32 +121,36 @@ const FeaturedRestaurantMenu = () => {
             return (
               <div
                 key={idx}
-                className="border rounded-xl p-4 bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-shadow duration-200"
+                className="group bg-white/60 backdrop-blur-sm rounded-2xl border border-gray-200/50 overflow-hidden shadow-md hover:shadow-xl hover:border-[#FF6B35]/30 transition-all duration-300"
               >
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-40 object-cover rounded-md mb-3"
-                  loading="lazy"
-                />
-                <h3 className="text-lg font-semibold">{item.name}</h3>
-                <p className="text-sm text-gray-600">{item.description}</p>
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-5">
+                  <h3 className="text-lg font-bold text-gray-800 mb-2">{item.name}</h3>
+                  <p className="text-sm text-gray-600 mb-4 line-clamp-2">{item.description}</p>
 
-                <div className="mt-3 flex items-center justify-between">
-                  <span className="text-orange-600 font-semibold">₹{item.price}</span>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xl font-bold text-[#FF6B35]">₹{item.price}</span>
+                  </div>
 
                   {quantity > 0 ? (
-                    <div className="flex items-center">
+                    <div className="flex items-center justify-center gap-3 bg-gray-50 rounded-xl p-2">
                       <button
-                        className="px-3 py-1 bg-red-500 text-white rounded-l hover:bg-red-600"
+                        className="bg-[#FF6B6B] text-white w-8 h-8 rounded-lg hover:bg-[#FF8C8C] transition-all font-bold"
                         onClick={() => removeFromCart({ ...item, id })}
                         aria-label={`Decrease quantity of ${item.name}`}
                       >
                         −
                       </button>
-                      <span className="px-4 font-semibold">{quantity}</span>
+                      <span className="font-bold text-gray-800 text-lg min-w-[30px] text-center">{quantity}</span>
                       <button
-                        className="px-3 py-1 bg-green-600 text-white rounded-r hover:bg-green-700"
+                        className="bg-[#FF6B35] text-white w-8 h-8 rounded-lg hover:bg-[#FF8C42] transition-all font-bold"
                         onClick={() => addToCart({ ...item, id })}
                         aria-label={`Increase quantity of ${item.name}`}
                       >
@@ -150,7 +159,7 @@ const FeaturedRestaurantMenu = () => {
                     </div>
                   ) : (
                     <button
-                      className="ml-4 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
+                      className="w-full bg-[#FF6B35] text-white font-semibold py-2.5 px-4 rounded-xl hover:bg-[#FF8C42] transition-all shadow-md hover:shadow-lg"
                       onClick={() => addToCart({ ...item, id })}
                     >
                       Add to Cart

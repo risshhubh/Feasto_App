@@ -141,105 +141,120 @@ const RestaurantDetails = () => {
 
   return (
     <>
-      <main className="pt-28 pb-16 px-4 sm:px-6 lg:px-8 bg-gray-50 min-h-screen max-w-screen-xl mx-auto">
-        {/* 🔖 Breadcrumb */}
-        <div className="mb-4 text-sm text-gray-600">
-          <Link to="/" className="hover:underline text-blue-600">Home</Link>
-          <span className="mx-1">/</span>
-          <Link to="/all-restaurants" className="hover:underline text-blue-600">All Restaurants</Link>
-          <span className="mx-1">/</span>
-          <span className="text-gray-800 font-medium">{restaurant.name}</span>
-        </div>
+      <main className="pt-28 pb-16 px-4 sm:px-6 lg:px-8 min-h-screen bg-gradient-to-br from-[#FFFBF0] via-[#FFF8E1] to-[#FFF5E6]">
+        <div className="max-w-7xl mx-auto">
+          {/* Breadcrumb */}
+          <nav className="mb-6 text-sm text-gray-600">
+            <Link to="/" className="hover:text-[#FF6B35] transition">Home</Link>
+            <span className="mx-2">/</span>
+            <Link to="/all-restaurants" className="hover:text-[#FF6B35] transition">All Restaurants</Link>
+            <span className="mx-2">/</span>
+            <span className="text-gray-800 font-medium">{restaurant.name}</span>
+          </nav>
 
-        {/* 🏪 Restaurant Banner */}
-        <section className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden mb-8">
-          <img
-            src={restaurant.image}
-            alt={restaurant.name}
-            className="w-full h-48 sm:h-64 object-cover"
-          />
-          <div className="p-4 sm:p-6">
-            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">{restaurant.name}</h2>
-            <p className="text-gray-600 text-sm sm:text-base">{restaurant.description || 'Delicious dishes from this restaurant.'}</p>
+          {/* Restaurant Banner */}
+          <section className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/50 overflow-hidden mb-8">
+            <div className="relative h-64 sm:h-80">
+              <img
+                src={restaurant.image}
+                alt={restaurant.name}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/50 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-gray-800 mb-2">{restaurant.name}</h2>
+                <p className="text-gray-700 text-base sm:text-lg">{restaurant.description || 'Delicious dishes from this restaurant.'}</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Filter + Sort Controls */}
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
+            <div className="relative w-full sm:w-1/2">
+              <input
+                type="text"
+                placeholder="Search dishes..."
+                className="w-full px-4 py-3 pl-10 rounded-xl border border-gray-200 bg-white/60 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#FF6B35] focus:border-[#FF6B35] transition-all"
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+              />
+              <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <select
+              className="px-4 py-3 rounded-xl border border-gray-200 bg-white/60 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#FF6B35] focus:border-[#FF6B35] transition-all w-full sm:w-auto"
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+            >
+              <option value="rating">Sort by Rating</option>
+              <option value="price">Sort by Price</option>
+            </select>
           </div>
-        </section>
 
-        {/* 🔍 Filter + Sort Controls */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
-          <input
-            type="text"
-            placeholder="Search dishes..."
-            className="border border-gray-300 rounded px-4 py-2 w-full sm:w-1/2"
-            value={filter}
-            onChange={(e) => setFilter(e.target.value)}
-          />
-          <select
-            className="border border-gray-300 rounded px-4 py-2 w-full sm:w-auto"
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-          >
-            <option value="rating">Sort by Rating</option>
-            <option value="price">Sort by Price</option>
-          </select>
-        </div>
-
-        {/* 🍽️ Menu Grid */}
-        <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
-          {filteredMenu.map((item, idx) => {
-            const itemId = `${restaurant.name}-${item.name}`;
-            const quantity = getQuantity(itemId);
-            return (
-              <div
-                key={idx}
-                className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 flex flex-col sm:flex-row items-start gap-4 hover:shadow-md transition"
-              >
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full sm:w-28 h-28 object-cover rounded-md"
-                  loading="lazy"
-                />
-                <div className="flex-1">
-                  <h4 className="text-lg font-semibold text-gray-800 mb-1">{item.name}</h4>
-                  <p className="text-sm text-gray-600 mb-1">{item.description}</p>
-                  <p className="text-sm text-gray-800 font-medium">₹{item.price}</p>
-                  <div className="text-sm text-yellow-500 font-medium flex items-center gap-1 mb-2">
-                    <Star className="w-4 h-4" />
-                    {item.rating} ({item.reviews || 0} reviews)
+          {/* Menu Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredMenu.map((item, idx) => {
+              const itemId = `${restaurant.name}-${item.name}`;
+              const quantity = getQuantity(itemId);
+              return (
+                <div
+                  key={idx}
+                  className="group bg-white/60 backdrop-blur-sm rounded-2xl shadow-md border border-gray-200/50 overflow-hidden hover:shadow-xl hover:border-[#FF6B35]/30 transition-all duration-300"
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full flex items-center gap-1 text-xs font-semibold text-gray-800">
+                      <Star className="w-3 h-3 fill-[#FFD23F] text-[#FFD23F]" />
+                      {item.rating}
+                    </div>
                   </div>
+                  <div className="p-5">
+                    <h4 className="text-lg font-bold text-gray-800 mb-2">{item.name}</h4>
+                    <p className="text-sm text-gray-600 mb-3 line-clamp-2">{item.description}</p>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-xl font-bold text-[#FF6B35]">₹{item.price}</span>
+                      <span className="text-xs text-gray-500">({item.reviews || 0} reviews)</span>
+                    </div>
 
-                  {quantity === 0 ? (
-                    <button
-                      onClick={() =>
-                        addToCart({ id: itemId, name: item.name, image: item.image, price: item.price })
-                      }
-                      className="text-sm bg-amber-600 text-white px-4 py-1 rounded hover:bg-orange-800"
-                    >
-                      Add to Cart
-                    </button>
-                  ) : (
-                    <div className="flex items-center gap-2">
-                      <button
-                        onClick={() => removeFromCart({ id: itemId })}
-                        className="bg-red-700 text-white px-2 py-0.5 rounded hover:bg-red-600"
-                      >
-                        −
-                      </button>
-                      <span className="font-medium text-gray-800">{quantity}</span>
+                    {quantity === 0 ? (
                       <button
                         onClick={() =>
                           addToCart({ id: itemId, name: item.name, image: item.image, price: item.price })
                         }
-                        className="bg-green-700 text-white px-2 py-0.5 rounded hover:bg-green-600"
+                        className="w-full bg-[#FF6B35] text-white font-semibold py-2.5 px-4 rounded-xl hover:bg-[#FF8C42] transition-all shadow-md hover:shadow-lg"
                       >
-                        +
+                        Add to Cart
                       </button>
-                    </div>
-                  )}
+                    ) : (
+                      <div className="flex items-center justify-center gap-3 bg-gray-50 rounded-xl p-2">
+                        <button
+                          onClick={() => removeFromCart({ id: itemId })}
+                          className="bg-[#FF6B6B] text-white w-8 h-8 rounded-lg hover:bg-[#FF8C8C] transition-all font-bold"
+                        >
+                          −
+                        </button>
+                        <span className="font-bold text-gray-800 text-lg min-w-[30px] text-center">{quantity}</span>
+                        <button
+                          onClick={() =>
+                            addToCart({ id: itemId, name: item.name, image: item.image, price: item.price })
+                          }
+                          className="bg-[#FF6B35] text-white w-8 h-8 rounded-lg hover:bg-[#FF8C42] transition-all font-bold"
+                        >
+                          +
+                        </button>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </main>
     </>
