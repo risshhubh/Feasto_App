@@ -9,8 +9,7 @@ Feasto is a fully responsive, modern food delivery web application designed to e
 
 ## 📸 Preview
 
-<img width="1916" height="1001" alt="Screenshot 2025-07-11 134508" src="https://github.com/user-attachments/assets/9fbd3b4c-7d21-4fdf-8d73-dc36dd43238a" />
-<br />
+
 <img alt="Feasto Preview 2" src="src/assets/readme_preview_new.png" width="100%" />
 ---
 
