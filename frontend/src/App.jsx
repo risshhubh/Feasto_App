@@ -8,7 +8,6 @@ const Signup = lazy(() => import('./SignUp'));
 import RestaurantDetails from './RestaurantDetails';
 import AllRestaurants from './AllRestaurant';
 import CategoryPage from './CategoryPage';
-import FeaturedRestaurantMenu from './FeaturedRestaurantMenu';
 import CheckoutPage from './CheckoutPage';
 import AboutUs from './AboutUs';
 import Help from './Help';
@@ -31,7 +30,7 @@ function App() {
         <Route path="/restaurant/:name" element={<RestaurantDetails />} />
         <Route path="/all-restaurants" element={<AllRestaurants />} />
         <Route path="/category/:categoryName" element={<CategoryPage />} />
-        <Route path="/featured/:name" element={<FeaturedRestaurantMenu />} />
+        <Route path="/featured/:name" element={<RestaurantDetails />} />
         <Route
           path="/checkout"
           element={

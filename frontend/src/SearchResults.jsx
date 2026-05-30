@@ -83,24 +83,24 @@ const SearchResults = () => {
                             onClick={() =>
                               addToCart({ id, name, image, price })
                             }
-                            className="mt-1 text-sm bg-[#FF6B35] text-white px-4 py-1 rounded hover:bg-[#FF8C42] transition"
+                            className="mt-1 text-sm bg-[#FF6B35] text-white px-4 py-1.5 rounded-lg hover:bg-[#FF8C42] transition font-bold"
                           >
                             Add to Cart
                           </button>
                         ) : (
                           <div className="flex items-center gap-2 mt-1">
                             <button
-                              onClick={() => removeFromCart(id)}
-                              className="bg-[#FF6B6B] text-white px-2 py-1 rounded hover:bg-[#FF8C8C]"
+                              onClick={() => removeFromCart({ id })}
+                              className="bg-[#FF6B6B] text-white w-7 h-7 flex items-center justify-center rounded hover:bg-[#FF8C8C]"
                             >
                               −
                             </button>
-                            <span className="font-medium text-gray-800">{quantity}</span>
+                            <span className="font-bold text-gray-800">{quantity}</span>
                             <button
                               onClick={() =>
                                 addToCart({ id, name, image, price })
                               }
-                              className="bg-green-600 text-white px-2 py-1 rounded hover:bg-green-500"
+                              className="bg-[#FF6B35] text-white w-7 h-7 flex items-center justify-center rounded hover:bg-[#FF8C42]"
                             >
                               +
                             </button>
